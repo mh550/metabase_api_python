@@ -1,2 +1,2 @@
-**/*.ipynb
-**/__pycache__/
+metabase_api/__pycache__
+.env
