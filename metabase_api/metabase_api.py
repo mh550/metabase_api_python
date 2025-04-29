@@ -73,6 +73,8 @@ class Metabase_API():
     ##################################################################
     from .create_methods import create_card, create_collection, create_segment
     from .copy_methods import copy_card, copy_collection, copy_dashboard, copy_pulse
+    from .clone_methods import clone_dashboard_new_database, clone_card_new_database, \
+                                clone_collection_new_database
     
     def search(self, q, item_type=None):
         """
@@ -332,7 +334,6 @@ class Metabase_API():
             'cardId': card_id
         }
         self.post(f'/api/dashboard/{dashboard_id}/cards', json=params)
-
 
 
     @staticmethod
