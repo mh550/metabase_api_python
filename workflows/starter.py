@@ -43,7 +43,10 @@ if __name__ == "__main__":
         # Insert API logic here....
         # response = mb.get("/api/database/7")
         # print(json.dumps(response, indent=4))
-        pass
+
+        response = mb.clone_card_new_database(source_dashboard_id=SOURCE_DASHBOARD_ID,
+                                    destination_collection_id=DESTINATION_COLLECTION_ID)
+        print(json.dumps(response, indent=4))
 
     except Exception as e:
         print(f"\nERROR during execution: {str(e)}")

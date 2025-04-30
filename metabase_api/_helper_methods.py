@@ -290,7 +290,28 @@ def friendly_names_is_disabled(self):
     friendly_name_setting = [ i['value'] for i in self.get('/api/setting') if i['key'] == 'humanization-strategy' ][0]
     return friendly_name_setting == 'none'  # 'none' means disabled
 
+def get_database_name_id(self, db_id=None, db_name=None, column_id_name=False):
+    if not db_id:
+        if not db_name:
+            raise ValueError(
+                "Either the name or id of the target database needs to be provided."
+            )
+        else:
+            db_id = self.get_item_id("database", db_name)
 
+    db_info = self.get_item_info("database", db_id, params={"include": "tables"})
+    if column_id_name:
+        db_table_name_id = {
+            table["id"]: {"name": table["name"], "columns": {}}
+            for table in db_info["tables"]
+        }
+    else:
+        db_table_name_id = {
+            table["name"]: {"id": table["id"], "columns": {}}
+            for table in db_info["tables"]
+        }
+
+    return db_table_name_id
 
 @staticmethod
 def verbose_print(verbose, msg):

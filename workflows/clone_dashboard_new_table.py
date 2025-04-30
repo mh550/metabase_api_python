@@ -46,7 +46,7 @@ if __name__ == "__main__":
                                             source_collection_id=SOURCE_COLLECTION_ID,
                                             destination_dashboard_name=DESTINATION_DASHBOARD_NAME,
                                             destination_collection_id=DESTINATION_COLLECTION_ID,
-                                            target_database_id=TARGET_DATABASE_ID)
+                                            targ  et_database_id=TARGET_DATABASE_ID)
         
         print(f"\nSUCCESS! Your cloned dashboard is available at: {DOMAIN}/dashboard/{new_dashboard_id}")
         
